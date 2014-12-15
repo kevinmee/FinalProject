@@ -1,13 +1,27 @@
 div#profile
-    div#profileLeft
-        div#headshot
-            img(src=headshotSrc)
-        div#personalInfo
-            p #{personalInfo}
-    div#profileRight
-        div#profileHeading
-            p Name: #{dwarf.name}
-            p Skills: #{dwarf.skills}
-            p Prefered Jobs: #{dwarf.jobs}
-        div#profileDetail
+    div#profileContent
+        div#profileLeft
+            div#headshot
+                img(src=headshotSrc)
+            table#personalInfo
+                tr
+                    th Personal Info
+                tr
+                    td Favorite Drink: #{dwarf.drink}
+                tr
+                    td Favorite Game: #{dwarf.game}
+                tr
+                    td Fears: #{dwarf.fear}
+                tr
+                    td Loves: #{dwarf.love}
+        div#profileRight
+            div#profileHeading
+                p Name: #{dwarf.name}
+                p Skills: #{dwarf.skills}
+                p Prefered Jobs: #{dwarf.jobs}
+            div#profileDetail
+                p #{dwarf.details}
     div#profileContact
+        p #{dwarf.contact.address}
+        p #{dwarf.contact.number}
+        p #{dwarf.contact.email}
