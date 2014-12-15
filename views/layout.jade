@@ -1,7 +1,15 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        div#header
+            include header.jade
+        div#center
+            div#navigation
+                include navigation.jade
+            div#content
+                block content
+        div#footer
+            include footer.jade
