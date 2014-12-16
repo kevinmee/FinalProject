@@ -83,18 +83,18 @@ exports.getAllDwarfByName = function(name, after) {
 };
 
 exports.addDwarf = function(req, res) {
-    var headshotSrc = req.query.headshotSrc;
-    var name = req.query.name;
-    var skills = req.query.skills;
-    var jobs = req.query.jobs;
-    var detail = req.query.jobs;
-    var drink = req.query.drink;
-    var game = req.query.game;
-    var fear = req.query.fear;
-    var love = req.query.love;
-    var address = req.query.address;
-    var number = req.query.number;
-    var email = req.query.email;
+    var headshotSrc = req.body.headshotSrc || 'img/HireHo.png';
+    var name = req.body.name || 'No name';
+    var skills = req.body.skills || 'No skills';
+    var jobs = req.body.jobs || 'No preferred jobs';
+    var detail = req.body.detail || 'No further information';
+    var drink = req.body.drink || 'N/A';
+    var game = req.body.game || 'N/A';
+    var fear = req.body.fear || 'N/A';
+    var love = req.body.love || 'N/A';
+    var address = req.body.address || 'None given';
+    var number = req.body.number || 'None given';
+    var email = req.body.email || 'None given';
 
     var c = new Client();
 
@@ -119,6 +119,8 @@ exports.addDwarf = function(req, res) {
         });
 
     c.end();
+
+    res.render('home');
 };
 
 exports.getProductivity = function(req, res) {
