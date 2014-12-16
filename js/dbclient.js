@@ -89,7 +89,7 @@ exports.addDwarf = function(req, res) {
     var name = req.query.name;
     var skills = req.query.skills;
     var jobs = req.query.jobs;
-    var details = req.query.jobs;
+    var detail = req.query.jobs;
     var drink = req.query.drink;
     var game = req.query.game;
     var fear = req.query.fear;
@@ -112,7 +112,7 @@ exports.addDwarf = function(req, res) {
         .on('close', function(hadError) { console.log('Client closed'); });
 
     c.query('INSERT INTO dwarves VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-        [headshotSrc, name, skills, jobs, details, drink, game, fear, love, address, number, email])
+        [headshotSrc, name, skills, jobs, detail, drink, game, fear, love, address, number, email])
         .on('result', function(res) {
             res.on('error', function(err) { console.log('Result error: ' + err); })
                 .on('end', function(info) { console.log('Results: ' + info); });
