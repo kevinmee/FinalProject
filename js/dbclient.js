@@ -39,7 +39,7 @@ exports.getDwarves = function(req, res) {
 
             console.log(dwarf);
 
-            jade.renderFile('views/profile.jade', dwarf);
+            jade.renderFile('views/profile.jade', {dwarf: dwarf});
         });
 
     c.end();

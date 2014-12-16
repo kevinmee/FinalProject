@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jade = require('jade');
+var dbclient = require('../js/dbclient');
 
 var sampleDwarf = {
     headshotSrc: 'img/dwarf.jpg',
@@ -25,6 +26,8 @@ var dwarves = [sampleDwarf, sampleDwarf, sampleDwarf];
 router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
+
+router.get('/getDwarf', dbclient.getDwarves);
 
 router.get('/home', function(req, res) {
     res.render('home')
