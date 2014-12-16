@@ -31,6 +31,16 @@ router.get('/home', function(req, res) {
     res.render('home');
 });
 
+router.get('/homepage', function(req, res) {
+    var partial = jade.renderFile('views/homepage.jade');
+    res.send(partial);
+});
+
+router.get('/about', function(req, res) {
+    var partial = jade.renderFile('views/about.jade');
+    res.send(partial);
+});
+
 router.get('/inventory', function(req, res) {
     function after(dwarves) {
         var partial = jade.renderFile('views/inventory.jade', {dwarves: dwarves});
