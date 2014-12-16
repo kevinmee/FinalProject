@@ -52,9 +52,7 @@ router.get('/addDwarf', function(req, res) {
     res.send(partial);
 });
 
-router.post('/addDwarf', function(req, res) {
-    console.log(req);
-});
+router.post('/addDwarf', dbclient.addDwarf);
 
 router.get('/inventory', function(req, res) {
     function after(dwarves) {
