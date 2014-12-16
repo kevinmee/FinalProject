@@ -47,6 +47,15 @@ router.get('/about', function(req, res) {
     res.send(partial);
 });
 
+router.get('/addDwarf', function(req, res) {
+    var partial = jade.renderFile('views/addDwarf.jade');
+    res.send(partial);
+});
+
+router.post('/addDwarf', function(req, res) {
+    console.log(req);
+});
+
 router.get('/inventory', function(req, res) {
     function after(dwarves) {
         var partial = jade.renderFile('views/inventory.jade', {dwarves: dwarves});

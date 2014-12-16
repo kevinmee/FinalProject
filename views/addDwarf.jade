@@ -1,0 +1,61 @@
+div#addDwarf
+   h1 Interested in joining our team?
+
+   form(action='/addDwarf', method='post')
+      table
+         tr
+            td
+               | Name:
+            td
+               input(id='name', type='text', value='', name='name')
+         tr
+            td
+               | Skills:
+            td
+               input(id='skills', type='text', value='', name='skills')
+         tr
+            td
+               | Prefered Jobs:
+            td
+               input(id='jobs', type='text', value='', name='jobs')
+         tr
+            td
+               | Favorite Drink:
+            td
+               input(id='drink', type='text', value='', name='drink')
+         tr
+            td
+               | Favorite Game:
+            td
+               input(id='game', type='text', value='', name='game')
+         tr
+            td
+               | Fears:
+            td
+               input(id='fear', type='text', value='', name='fear')
+         tr
+            td
+               | Loves:
+            td
+               input(id='love', type='text', value='', name='love')
+         tr
+            td
+               | Address:
+            td
+               input(id='address', type='text', value='', name='address')
+         tr
+            td
+               | Phone Number:
+            td
+               input(id='number', type='text', value='', name='number')
+         tr
+            td
+               | E-Mail Address:
+            td
+               input(id='email', type='text', value='', name='email')
+
+      p Detailed Description:
+      textarea(id='detail', name='detail')
+
+      div(id='newDwarfSubmit')
+         input(type='submit', value='Become a Hire Ho Dwarf!')

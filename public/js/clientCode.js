@@ -17,6 +17,12 @@ $(function () {
             $('#content').html(data);
         });
     });
+    $('#addDwarflink').click(function() {
+        $.get('/addDwarf', function(data) {
+            data = data.replace(/\n/g, '<br />');
+            $('#content').html(data);
+        });
+    });
 
     $.get('/homepage', function(data) {
         data = data.replace(/\n/g, '<br />');
