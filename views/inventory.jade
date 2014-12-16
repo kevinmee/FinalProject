@@ -1,0 +1,8 @@
+div#inventory
+   each dwarf in dwarves
+      div.dwarf
+         div.headshot
+            img(src=dwarf.headshotSrc)
+         div.info
+            p Name: #{dwarf.name}
+            p Skills: #{dwarf.skills}
