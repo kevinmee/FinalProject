@@ -19,7 +19,7 @@ var sampleDwarf = {
     }
 };
 
-var dwarves = [sampleDwarf];
+var dwarves = [sampleDwarf, sampleDwarf, sampleDwarf];
 
 /* GET home page. */
 router.get('/', function(req, res) {
