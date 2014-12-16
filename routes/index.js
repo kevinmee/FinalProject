@@ -32,15 +32,21 @@ router.get('/home', function(req, res) {
 });
 
 router.get('/inventory', function(req, res) {
-    var dwarves = dbclient.getAllDwarves();
-    var partial = jade.renderFile('views/inventory.jade', {dwarves: dwarves});
-    res.send(partial);
+    function after(dwarves) {
+        var partial = jade.renderFile('views/inventory.jade', {dwarves: dwarves});
+        res.send(partial);
+    }
+
+    dbclient.getAllDwarves(after);
 });
 
 router.get('/profile', function(req, res) {
-    console.log(req._parsedUrl.query);
-    var partial = jade.renderFile('views/profile.jade', {dwarf: sampleDwarf});
-    res.send(partial);
+    function after(dwarf) {
+        var partial = jade.renderFile('views/profile.jade', {dwarf: dwarf});
+        res.send(partial);
+    }
+
+    dbclient.getAllDwarfByName(req._parsedUrl.query, after);
 });
 
 module.exports = router;
