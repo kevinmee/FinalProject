@@ -153,3 +153,14 @@ INSERT INTO dwarves VALUES (
     '1-GOD-BLESS',
     'Sneezy@7dwarves.com'
 );
+
+CREATE TABLE productivity (
+    job VARCHAR(25),
+    withDwarf INT,
+    withoutDwarf INT
+);
+
+INSERT INTO productivity VALUES ('Mining', 50, 15);
+INSERT INTO productivity VALUES ('Smithing', 75, 25);
+INSERT INTO productivity VALUES ('Orc Slaying', 83, 32);
+INSERT INTO productivity VALUES ('Eating', 100, 31);

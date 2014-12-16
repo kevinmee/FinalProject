@@ -1,0 +1,15 @@
+Our goal for the final project of Webware at WPI was create a website from the ground up
+starting with the design. The first thing we did was brain storm ideas for what we could
+have as the theme of our project. Eventually we ended up with the idea of a freelance
+company for dwarves. After having our idea, we started to come up with mock designs of a
+potential company website. We finally decided one one layout that we all agreed was clean
+and looked professional. From the design, we moved into the implementation of this company
+website. We began with the layout template and slowly built our way up until we were
+connecting a database with our dwarf workers into the main web page. From there we just
+needed to do a few minor tweaks to make sure everything was clean and working properly.
+
+We wanted to create a company that could be realistic. There are plenty freelance
+companies whose job it is to just assign workers to various jobs, so we wanted to base our
+company off this model. Since our team name was 'Red Dwarf', we thought it would be fun to
+incorporate our name into the project somehow, so low and behold, Dwarf freelancing
+company. 
