@@ -27,13 +27,12 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/getDwarf', dbclient.getDwarves);
-
 router.get('/home', function(req, res) {
     res.render('home')
 });
 
 router.get('/inventory', function(req, res) {
+    var dwarves = dbclient.getAllDwarves();
     var partial = jade.renderFile('views/inventory.jade', {dwarves: dwarves});
     res.send(partial);
 });

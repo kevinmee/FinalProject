@@ -2,7 +2,7 @@ var inspect = require('util').inspect;
 var jade = require('jade');
 var Client = require('mariasql');
 
-exports.getDwarves = function(req, res) {
+exports.getAllDwarves = function() {
 
     var dwarf = [];
 
@@ -38,11 +38,54 @@ exports.getDwarves = function(req, res) {
             }
 
             console.log(dwarf);
-
-            jade.renderFile('views/profile.jade', {dwarf: dwarf});
         });
 
     c.end();
+
+    return dwarf;
+}
+
+exports.getAllDwarfByName = function(name) {
+
+    var dwarf = [];
+
+    var c = new Client();
+
+    c.connect({
+        host: '127.0.0.1',
+        user: 'afortier',
+        password: 'afortier_pw',
+        db: "afortier_db"
+    })
+
+    c.on('connect', function() { console.log('Client is connected!'); })
+        .on('error', function(err) { console.log('Client error: ' + err); })
+        .on('close', function(hadError) { console.log('Client closed'); });
+
+    c.query('SELECT * FROM dwarves WHERE name = ?', [name])
+        .on('result', function(res) {
+            res.on('row', function(row) { dwarf.push(row); })
+                .on('error', function(err) { console.log('Result error: ' + err); })
+                .on('end', function(info) { console.log('Results'); });
+        })
+        .on('end', function() {
+            console.log('Done with all results');
+
+            for (var i = 0; i < dwarf.length; i++) {
+                dwarf[i].contact = { address: dwarf[i].address,
+                    number: dwarf[i].number,
+                    email: dwarf[i].email}
+                delete dwarf[i].address;
+                delete dwarf[i].number;
+                delete dwarf[i].email;
+            }
+
+            console.log(dwarf);
+        });
+
+    c.end();
+
+    return dwarf;
 
 }
 
