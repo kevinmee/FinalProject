@@ -1,9 +1,6 @@
 $(function () {
     $('#homelink').click(function() {
-        $.get('/homepage', function(data) {
-            data = data.replace(/\n/g, '<br />');
-            $('#content').html(data);
-        });
+        renderHomepage();
     });
     $('#inventorylink').click(function() {
         $.get('/inventory', function(data) {
@@ -24,6 +21,10 @@ $(function () {
         });
     });
 
+    renderHomepage();
+});
+
+function renderHomepage() {
     $.get('/homepage', function(data) {
         data = data.replace(/\n/g, '<br />');
         $('#content').html(data);
@@ -54,7 +55,7 @@ $(function () {
         });
 
     });
-});
+}
 
 function getDwarfProfile(dwarf) {
     $.get('/profile?' + dwarf, function(data) {
