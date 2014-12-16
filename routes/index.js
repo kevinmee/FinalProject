@@ -65,4 +65,6 @@ router.get('/profile', function(req, res) {
     dbclient.getAllDwarfByName(req._parsedUrl.query, after);
 });
 
+router.get('/getProductivity', dbclient.getProductivity);
+
 module.exports = router;

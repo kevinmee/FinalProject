@@ -22,6 +22,32 @@ $(function () {
         data = data.replace(/\n/g, '<br />');
         $('#content').html(data);
     });
+
+    // Initialize Cookie Sales chart
+    $.getJSON('/getProductivity', function(data) {
+
+        var chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'dwarfProductivity',
+                type: 'column'
+            },
+            title: {
+                text: 'Dwarf Productivty Ratings'
+            },
+            xAxis: {
+                categories: [
+                    'With Dwarves', 'Without Dwarves'
+                ]
+            },
+            yAxis: {
+                title: {
+                    text: 'Productivity Rating'
+                }
+            },
+            series: data
+        });
+
+    });
 });
 
 function getDwarfProfile(dwarf) {
