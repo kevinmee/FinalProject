@@ -14,18 +14,17 @@ exports.getAllDwarves = function(after) {
         db: "afortier_db"
     });
 
-    c.on('connect', function() { console.log('Client is connected!'); })
+    c.on('connect', function() { })
         .on('error', function(err) { console.log('Client error: ' + err); })
-        .on('close', function(hadError) { console.log('Client closed'); });
+        .on('close', function(hadError) {  });
 
     c.query('SELECT * FROM dwarves')
         .on('result', function(res) {
             res.on('row', function(row) { dwarf.push(row); })
                 .on('error', function(err) { console.log('Result error: ' + err); })
-                .on('end', function(info) { console.log('Results'); });
+                .on('end', function(info) {  });
         })
         .on('end', function() {
-            console.log('Done with all results');
 
             for (var i = 0; i < dwarf.length; i++) {
                 dwarf[i].contact = { address: dwarf[i].address,
@@ -56,18 +55,17 @@ exports.getAllDwarfByName = function(name, after) {
         db: "afortier_db"
     });
 
-    c.on('connect', function() { console.log('Client is connected!'); })
+    c.on('connect', function() {  })
         .on('error', function(err) { console.log('Client error: ' + err); })
-        .on('close', function(hadError) { console.log('Client closed'); });
+        .on('close', function(hadError) {  });
 
     c.query('SELECT * FROM dwarves WHERE name = ?', [name])
         .on('result', function(res) {
             res.on('row', function(row) { dwarf.push(row); })
                 .on('error', function(err) { console.log('Result error: ' + err); })
-                .on('end', function(info) { console.log('Results'); });
+                .on('end', function(info) {  });
         })
         .on('end', function() {
-            console.log('Done with all results');
             for (var i = 0; i < dwarf.length; i++) {
                 dwarf[i].contact = { address: dwarf[i].address,
                     number: dwarf[i].number,
@@ -107,9 +105,9 @@ exports.addDwarf = function(req, res) {
         db: "afortier_db"
     });
 
-    c.on('connect', function() { console.log('Client is connected!'); })
+    c.on('connect', function() {  })
         .on('error', function(err) { console.log('Client error: ' + err); })
-        .on('close', function(hadError) { console.log('Client closed'); });
+        .on('close', function(hadError) {  });
 
     c.query('INSERT INTO dwarves VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         [headshotSrc, name, skills, jobs, detail, drink, game, fear, love, address, number, email])
@@ -118,7 +116,6 @@ exports.addDwarf = function(req, res) {
                 .on('end', function(info) { console.log('Results: ' + info); });
         })
         .on('end', function() {
-            //res.render('index', { title: "Snacks in the U.S."});
         });
 
     c.end();
@@ -136,16 +133,16 @@ exports.getProductivity = function(req, res) {
         user: 'afortier',
         password: 'afortier_pw',
         db: "afortier_db"
-    })
+    });
 
     c.on('connect', function () {
-        console.log('Client is connected!');
+
     })
         .on('error', function (err) {
             console.log('Client error: ' + err);
         })
         .on('close', function (hadError) {
-            console.log('Client closed');
+
         });
 
     c.query('SELECT * FROM productivity')
@@ -157,11 +154,10 @@ exports.getProductivity = function(req, res) {
                     console.log('Result error: ' + err);
                 })
                 .on('end', function (info) {
-                    console.log('Results');
+
                 });
         })
         .on('end', function () {
-            console.log('Done with all results');
 
             for (var i = 0; i < rows.length; i++) {
                 outputArr[i] = {
