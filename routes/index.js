@@ -24,7 +24,13 @@ var dwarves = [sampleDwarf, sampleDwarf, sampleDwarf];
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.redirect('/home');
+});
+router.get('/index', function(req, res) {
+    res.redirect('/home');
+});
+router.get('/index.html', function(req, res) {
+    res.redirect('/home');
 });
 
 router.get('/home', function(req, res) {
