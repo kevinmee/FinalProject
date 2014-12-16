@@ -1,6 +1,6 @@
 div#inventory
    each dwarf in dwarves
-      div.dwarf
+      div.dwarf(onclick="getDwarfProfile('" + dwarf.name + "')")
          div.headshot
             img(src=dwarf.headshotSrc)
          div.info

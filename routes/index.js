@@ -39,6 +39,7 @@ router.get('/inventory', function(req, res) {
 });
 
 router.get('/profile', function(req, res) {
+    console.log(req._parsedUrl.query);
     var partial = jade.renderFile('views/profile.jade', {dwarf: sampleDwarf});
     res.send(partial);
 });

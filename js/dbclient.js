@@ -13,7 +13,7 @@ exports.getDwarves = function(req, res) {
         user: 'afortier',
         password: 'afortier_pw',
         db: "afortier_db"
-    })
+    });
 
     c.on('connect', function() { console.log('Client is connected!'); })
         .on('error', function(err) { console.log('Client error: ' + err); })
@@ -39,12 +39,12 @@ exports.getDwarves = function(req, res) {
 
             console.log(dwarf);
 
-            jade.renderFile('views/profile.jade', {dwarf: dwarf});
+            jade.renderFile('views/profile.jade', {dwarf: dwarf[0]});
         });
 
     c.end();
 
-}
+};
 
 exports.addDwarf = function(req, res) {
     var headshotSrc = req.query.headshotSrc;
