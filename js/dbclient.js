@@ -1,7 +1,7 @@
 var jade = require('jade');
 var Client = require('mariasql');
 
-exports.getAllDwarves = function() {
+exports.getAllDwarves = function(after) {
 
     var dwarf = [];
 
@@ -36,17 +36,16 @@ exports.getAllDwarves = function() {
                 delete dwarf[i].email;
             }
 
-            console.log(dwarf);
+            after(dwarf);
         });
 
     c.end();
-
-    return dwarf;
 };
 
-exports.getAllDwarfByName = function(name) {
+exports.getAllDwarfByName = function(name, after) {
 
     var dwarf = [];
+    console.log(name);
 
     var c = new Client();
 
@@ -78,12 +77,12 @@ exports.getAllDwarfByName = function(name) {
                 delete dwarf[i].email;
             }
 
-            console.log(dwarf);
+            after(dwarf[0]);
         });
 
     c.end();
 
-    return dwarf;
+
 
 };
 
